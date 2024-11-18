@@ -63,12 +63,5 @@ const CodyRecommend = () => {
                              borderRadius: '16px',
                              padding: '1px 8px',
                              backgroundColor: '#FFFFFF'
-                         }} />
+                         } } />
                 ))}
-            </Box>
-        </>
-
-
-    );
-};
-export default CodyRecommend
