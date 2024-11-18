@@ -5,6 +5,7 @@ const CodyRecommend = () => {
         <>
             <Card
                 sx={{
+                    fontFamily:'noto-sans',
                     width: '95%',
                     height: '300px',
                     mt: 1,
@@ -12,7 +13,7 @@ const CodyRecommend = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    backgroundColor: '#D09AFF',
+                    backgroundColor: '#EBEBFF',
                     position: 'relative',
                 }}
             >
@@ -38,6 +39,8 @@ const CodyRecommend = () => {
             </Card>
             <Box
                 sx={{
+                    fontFamily:'noto-sans',
+                    fontWeight: 'Regular 400',
                     width: '95%',
                     maxWidth:'100%',
                     display: 'flex',
@@ -46,19 +49,21 @@ const CodyRecommend = () => {
                     gap: 1,
                     mt: 1,
                     pb: 1,
-                    '&::-webkit-scrollbar': {
-                        height: '8px',
-                        display: 'block',
-                    },
-                    '&::-webkit-scrollbar-thumb': {
-                        backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                        borderRadius: '4px',
-                    },
+
                 }}
             >
                 {/* 태그들을 리스트로 받으면 나열 지금은 임시*/}
                 {['캐주얼', '포멀', '비즈니스', '스포티', '아웃도어','스웨터','스포츠','스트릿'].map((tag, index) => (
-                    <Chip key={index} label={`# ${tag}`} sx={{ fontSize: '15px' }} />
+                    <Chip key={index} label={`# ${tag}`}
+                    sx={{
+                             fontWeight: 'Regular 400',
+                             fontSize: '16px',
+                             color: '#9D78C6',
+                             border: '2.5px solid #9D78C6',
+                             borderRadius: '16px',
+                             padding: '1px 8px',
+                             backgroundColor: '#FFFFFF'
+                         }} />
                 ))}
             </Box>
         </>

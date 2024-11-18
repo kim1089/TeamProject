@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import findPColor from '../assets/colorTest/findPColor.png';
 import colorTest from '../assets/colorTest/colorTest.png';
-import PersonalColor from "../components/PersonalColor.jsx";
 import { useState } from "react";
 
 
