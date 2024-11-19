@@ -41,6 +41,30 @@ const Login = () => {
             dispatch(isLogin(false));
         }
     };
+    const textFieldStyles = {
+            "& .MuiOutlinedInput-root": {
+                color: "#828282",
+                fontFamily: "noto-sans",
+                fontWeight: "Regular",
+                "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#E0E0E0",
+                    borderWidth: "2px",
+                    borderRadius: '15px',
+                },
+            },
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#828282",
+                borderWidth: "3px",
+                borderRadius: '15px',
+            },
+            "&:hover:not(.Mui-focused) .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#828282",
+                borderRadius: '15px',
+            },
+            "& .MuiInputLabel-outlined": {
+                color: "#828282",
+            },
+        };
     return (
         <Box
         sx={{padding:2}}>
@@ -48,6 +72,7 @@ const Login = () => {
                 로그인
             </Typography>
             <Box component="form" onSubmit={handleSubmit}>
+
                 <TextField
                     label="Email"
                     variant="outlined"
@@ -56,7 +81,9 @@ const Login = () => {
                     type="email"
                     value={email}
                     onChange={handleEmailChange}
+                    sx={textFieldStyles}
                 />
+
                 <TextField
                     label="Password"
                     type="password"
@@ -65,19 +92,62 @@ const Login = () => {
                     margin="normal"
                     value={password}
                     onChange={handlePasswordChange}
+                    sx={textFieldStyles}
                 />
+
                 <Box display="flex" justifyContent="flex-end" mt={1}>
                     <Button variant="text" color="black" onClick={() => navigate('/register')}>
                         계정이 없으신가요?
                     </Button>
+
                 </Box>
-                <BasicBtn text = "로그인" bgColor='black' textColor='white' />
+
+                 <Button variant= "contained" disableElevation
+                 sx={{
+                    marginTop: '45px',
+                    mt: 2,
+                    text: '로그인',
+                    backgroundColor: 'black',
+                    textColor: 'white',
+                    height: '50px',
+                    width: '100%',
+                         "& .MuiOutlinedInput-root": {
+                           color: "#828282",
+                           fontFamily: "noto-sans",
+                           fontWeight: "Regular",
+                           // Class for the border around the input field
+                           "& .MuiOutlinedInput-notchedOutline": {
+                             borderColor: "#E0E0E0",
+                             borderWidth: "2px",
+                             borderRadius: '30px'
+                             }
+                         },
+                        "&.Mui-focused": {
+                           "& .MuiOutlinedInput-notchedOutline": {
+                             borderColor: "#E0E0E0",
+                             borderWidth: "3px",
+                             borderRadius: '30px'
+                           },
+                         },
+                       "&:hover:not(.Mui-focused)": {
+                                "& .MuiOutlinedInput-notchedOutline": {
+                                  borderColor: "#ccc",
+                                  borderRadius: '30px'
+                                },
+                              },
+                     // Class for the label of the input field
+                     "& .MuiInputLabel-outlined": {
+                       color: "#E0E0E0",
+                        },
+                        borderRadius: '30px'
+                       }}>로그인</Button>
+
                 <Button
                     component="a"
                     href={KAKAO_AUTH_URL}
                     sx={{
                         width: '100%',
-                        height: '36.5px',
+                        height: '50px',
                         backgroundImage: `url(${KakaoLoginImage})`,
                         borderRadius:'12px',
                         backgroundSize: 'cover',

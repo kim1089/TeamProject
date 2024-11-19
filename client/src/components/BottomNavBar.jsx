@@ -12,7 +12,7 @@ import { styled } from '@mui/system';
 const StyledBottomNavigationAction = styled(BottomNavigationAction)(() => ({
     color: 'gray', // 기본 색상
     '&.Mui-selected': {
-        color: '#c283f1', // 선택된 상태에서의 색상
+        color: '#9D78C6', // 선택된 상태에서의 색상
     },
 }));
 

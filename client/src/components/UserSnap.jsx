@@ -24,7 +24,7 @@ const UserSnap = () => {
                     disableRipple
                     indicatorColor="none"
                     sx={{
-                        borderBottom: '1px solid lightgray',
+                        borderBottom: '1px solid #DCDCFF',
                         height: '70px',
                         backgroundColor: 'white',
                         "& .MuiTab-root": {
@@ -67,7 +67,7 @@ const UserSnap = () => {
                 </Tabs>
             </Box>
 
-            <ImageList sx={{ marginTop: 0, width: '100%' }} cols={3} rowHeight={250} gap={3}>
+            <ImageList sx={{ marginTop: 0, width: '100%' }} cols={3} rowHeight={250} gap={2.5}>
                 {itemData.map((item) => (
                     <ImageListItem key={item.img}>
                         <img

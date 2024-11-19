@@ -65,3 +65,10 @@ const CodyRecommend = () => {
                              backgroundColor: '#FFFFFF'
                          } } />
                 ))}
+            </Box>
+        </>
+
+
+    );
+};
+export default CodyRecommend
