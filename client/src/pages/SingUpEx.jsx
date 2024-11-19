@@ -38,7 +38,30 @@ const SignUpEx = () =>{
             console.log(location.longitude)
         }
     };
-
+    const textFieldStyles = {
+                "& .MuiOutlinedInput-root": {
+                    color: "#828282",
+                    fontFamily: "noto-sans",
+                    fontWeight: "Regular",
+                    "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#E0E0E0",
+                        borderWidth: "2px",
+                        borderRadius: '15px',
+                    },
+                },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#828282",
+                    borderWidth: "3px",
+                    borderRadius: '15px',
+                },
+                "&:hover:not(.Mui-focused) .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#828282",
+                    borderRadius: '15px',
+                },
+                "& .MuiInputLabel-outlined": {
+                    color: "#828282",
+                },
+            };
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -62,7 +85,7 @@ const SignUpEx = () =>{
                 회원가입
             </Typography>
             <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
-                <Stack spacing={2} sx={{ marginLeft: '10px', marginRight: '10px' }}>
+                <Stack spacing={2} sx={{ marginLeft: '10px', marginRight: '10px' , textFieldStyles }}>
                     <FormControl variant="outlined">
                         <InputLabel htmlFor="outlined-adornment-nickname">닉네임</InputLabel>
                         <OutlinedInput
@@ -81,6 +104,7 @@ const SignUpEx = () =>{
                         fullWidth
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
+                        sx={textFieldStyles}
                     />
 
                     <FormControl variant="outlined" fullWidth>
@@ -91,13 +115,14 @@ const SignUpEx = () =>{
                             value={gender}
                             onChange={(e) => setGender(e.target.value)}
                             label="성별"
+                            sx={textFieldStyles}
                         >
-                            <MenuItem value="male">남성</MenuItem>
-                            <MenuItem value="female">여성</MenuItem>
+                            <MenuItem value="male" sx={textFieldStyles} >남성</MenuItem>
+                            <MenuItem value="female" sx={textFieldStyles}>여성</MenuItem>
                         </Select>
                     </FormControl>
 
-                    <BasicBtn text="회원가입" bgColor="black" textColor="white" />
+                    <BasicBtn  text="회원가입" bgColor="black" textColor="white" sx={textFieldStyles} />
                 </Stack>
             </Box>
             <Toolbar />

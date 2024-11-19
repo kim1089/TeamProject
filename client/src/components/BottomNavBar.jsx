@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
-import ChatIcon from '@mui/icons-material/Chat';
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import CameraOutlinedIcon from '@mui/icons-material/CameraOutlined';
-
-
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import PersonIcon from '@mui/icons-material/Person';
 import { Link, useLocation } from 'react-router-dom';
 import { styled } from '@mui/system';
 
@@ -93,13 +91,13 @@ const BottomNavBar = () => {
                             component={Link}
                             to="/fashion-test"
                             label="패션 테스트"
-                            icon={<ChatIcon />}
+                            icon={<NoteAltIcon/>}
                         />
                         <StyledBottomNavigationAction
                             component={Link}
                             to="/mypage"
                             label="내 정보"
-                            icon={<PermIdentityIcon />}
+                            icon={<PersonIcon/>}
                         />
                     </BottomNavigation>
                 </Box>
