@@ -12,9 +12,15 @@ import KakaoHandler from "./components/KakaoHandler.jsx";
 import TopAppBar from "./components/TopAppBar.jsx";
 import BottomNavBar from "./components/BottomNavBar.jsx";
 import './App.css';
+import SnapDetail from "./pages/SnapDetail.jsx";
+import {userInfo} from "./api.jsx";
+import {isLogin, SetAge, SetGender, SetMemberId, SetNickName, SetProfileImgUrl} from "./store.jsx";
+import {useDispatch, useSelector} from "react-redux";
 
 function App() {
     const isDesktop = useMediaQuery('(min-width:768px)');
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.user);
     function ScrollToTop() {
         const location = useLocation();
 
@@ -24,14 +30,32 @@ function App() {
 
         return null;
     }
+
+    const getUserInfo = async () => {
+        try {
+            const result = await userInfo();
+            console.log(result);
+            await dispatch(isLogin(true));
+            await dispatch(SetNickName(result.nickname));
+            await dispatch(SetAge(result.age));
+            await dispatch(SetGender(result.gender))
+            await dispatch(SetProfileImgUrl(result.profileImageUrl));
+            await dispatch(SetMemberId(result.memberId));
+        }catch (error){
+            console.log(error);
+        }
+    }
+    useEffect(() => {
+        getUserInfo();
+    }, [user.isLogin]);
     return (
         <Box
             sx={{
                 display: 'flex',
-                justifyContent: 'center',
+                flexDirection:"column",
                 alignItems: 'center',
                 width: '100%',
-
+                justifyContent:'center',
                 padding: 0,
                 margin: 0,
                 bgcolor: '#f0f0f0',
@@ -50,7 +74,6 @@ function App() {
             >
                 <ScrollToTop />
                 <TopAppBar />
-                <Toolbar />
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/home" element={<Home />} />
@@ -58,10 +81,10 @@ function App() {
                     <Route path="/register" element={<Register />} />
                     <Route path="/mypage" element={<MyPage />} />
                     <Route path="/snap" element={<Snap />} />
+                    <Route path="/snap/:id" element={<SnapDetail />} />
                     <Route path='/fashion-test' element={<FashionTest />} />
                     <Route path="/signupex" element={<SingUpEx />} />
                 </Routes>
-                <Toolbar />
                 <BottomNavBar />
             </Box>
         </Box>

@@ -17,9 +17,9 @@ import jakarta.mail.internet.MimeMessage;
 public class EmailService {
 
     private final JavaMailSender mailSender;
-    
+
     private final Map<String, VerificationCodeInfo> verificationCodes = new HashMap<>();
-    
+
     private final long CODE_EXPIRATION_TIME = 3 * 60 * 1000; // 3분 유효 시간
 
     @Autowired
@@ -40,7 +40,7 @@ public class EmailService {
             throw new RuntimeException(e);
         }
         helper.setTo(email);
-        helper.setSubject("회원가입 인증 코드");
+        helper.setSubject("cody-on 인증 코드");
         helper.setText("<p>인증 코드: <b>" + verificationCode + "</b> (3분 이내에 입력해 주세요.)</p>", true);
 
         mailSender.send(message);
